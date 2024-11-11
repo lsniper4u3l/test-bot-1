@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import WebApp from '@twa-dev/sdk'
-import { useEffect, useState } from 'react'
+import WebApp from '@twa-dev/sdk';
+import { useEffect, useState } from 'react';
 
-// ไม่จำเป็นต้องใช้ interface ใน JavaScript
-export default function Home() {
-  const [userData, setUserData] = useState(null)
+// Define the interface for user data (JavaScript doesn't enforce interfaces)
+function Home() {
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     if (WebApp.initDataUnsafe.user) {
-      setUserData(WebApp.initDataUnsafe.user)
+      setUserData(WebApp.initDataUnsafe.user);
     }
-  }, [])
+  }, []);
 
   return (
     <main className="p-4">
@@ -31,5 +31,7 @@ export default function Home() {
         <div>Loading...</div>
       )}
     </main>
-  )
+  );
 }
+
+export default Home;
