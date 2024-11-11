@@ -3,12 +3,12 @@
 import WebApp from '@twa-dev/sdk';
 import { useEffect, useState } from 'react';
 
-// Define the interface for user data (JavaScript doesn't enforce interfaces)
 function Home() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    if (WebApp.initDataUnsafe.user) {
+    // Check if `window` is defined before accessing `WebApp`
+    if (typeof window !== "undefined" && WebApp.initDataUnsafe?.user) {
       setUserData(WebApp.initDataUnsafe.user);
     }
   }, []);
